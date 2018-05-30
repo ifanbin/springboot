@@ -12,4 +12,10 @@ public class HomeController {
         System.out.println("hello, springboot");
         return "hello, springboot";
     }
+
+    @RequestMapping("/hello")
+    public String sayHello(){
+        System.out.println("hello world");
+        return "hello world";
+    }
 }
