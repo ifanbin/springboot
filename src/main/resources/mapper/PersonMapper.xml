@@ -18,4 +18,9 @@
 		where name = #{name}
 	</select>
 
+    <select id="findAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from person
+    </select>
 </mapper>

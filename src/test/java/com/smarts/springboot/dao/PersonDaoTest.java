@@ -1,5 +1,7 @@
 package com.smarts.springboot.dao;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.smarts.springboot.entity.Person;
 import org.junit.Assert;
 import org.junit.Test;
@@ -21,6 +23,18 @@ public class PersonDaoTest {
     public void testQuery() throws Exception {
         Person person = personDao.findByName("张三");
         Assert.assertNotNull(person);
+    }
+
+    @Test
+    public void testQueryAll() throws Exception {
+        PageHelper.startPage(2, 1);
+        List<Person> persons = this.personDao.findAll();
+        System.out.println("Total: " + ((Page) persons).getTotal());
+        for (Person person : persons) {
+            System.out.println("Person Name: " + person);
+        }
+        Assert.assertEquals("张三", person.getName());
+
     }
 
 }

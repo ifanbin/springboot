@@ -4,6 +4,8 @@ import com.smarts.springboot.entity.Person;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * 人员 DAO 接口类
  *
@@ -18,4 +20,6 @@ public interface PersonDao {
      * @param name 人员姓名
      */
     Person findByName(@Param("name") String name);
+
+    List<Person> findAll();
 }
