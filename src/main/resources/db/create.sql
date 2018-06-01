@@ -1,3 +1,4 @@
+/*创建数据库*/
 DROP TABLE IF EXISTS  `person`;
 
 CREATE TABLE `person` (
