@@ -32,8 +32,8 @@ public class PersonDaoTest {
         System.out.println("Total: " + ((Page) persons).getTotal());
         for (Person person : persons) {
             System.out.println("Person Name: " + person);
+            Assert.assertEquals("张三", person.getName());
         }
-        Assert.assertEquals("张三", person.getName());
 
     }
 
