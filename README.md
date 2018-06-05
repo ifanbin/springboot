@@ -1,5 +1,4 @@
 # springboot
 例子项目
 
-数据库
-mysql
+只考虑web
