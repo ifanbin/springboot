@@ -26,6 +26,12 @@ public class PersonDaoTest {
     }
 
     @Test
+    public void testQueryAnnotation() throws Exception {
+        Person person = personDao.findByName2("张三");
+        Assert.assertNotNull(person);
+    }
+
+    @Test
     public void testQueryAll() throws Exception {
         PageHelper.startPage(2, 1);
         List<Person> persons = this.personDao.findAll();
