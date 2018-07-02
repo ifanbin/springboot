@@ -61,6 +61,7 @@ public class PersonDaoTest {
 
     @Test
     public void testQueryJpaPage() throws Exception{
+        //sort 也可以直接作为参数传入
         Pageable pageable = PageRequest.of(0,10);
         System.out.println(" \n 分页查询用户："
                 + " PageNumber = " + pageable.getPageNumber()
