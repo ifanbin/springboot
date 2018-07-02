@@ -9,6 +9,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
@@ -22,6 +24,9 @@ public class PersonDaoTest {
 
     @Autowired
     private PersonRepository personRepository;
+
+    @Autowired
+    private PersonPageRepository personPageRepository;
 
     @Test
     public void testQuery() throws Exception {
@@ -52,6 +57,16 @@ public class PersonDaoTest {
     public void testQueryJpa() throws Exception {
         PersonEntity person = personRepository.findById(1l).get();
         Assert.assertNotNull(person);
+    }
+
+    @Test
+    public void testQueryJpaPage() throws Exception{
+        Pageable pageable = PageRequest.of(0,10);
+        System.out.println(" \n 分页查询用户："
+                + " PageNumber = " + pageable.getPageNumber()
+                + " PageSize = " + pageable.getPageSize());
+        org.springframework.data.domain.Page<PersonEntity> persons = personPageRepository.findAll(pageable);
+        Assert.assertNotNull(persons);
     }
 
 }
