@@ -3,6 +3,7 @@ package com.smarts.springboot.dao;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.smarts.springboot.entity.Person;
+import com.smarts.springboot.entity.PersonEntity;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,6 +19,9 @@ public class PersonDaoTest {
 
     @Autowired
     private PersonDao personDao;
+
+    @Autowired
+    private PersonRepository personRepository;
 
     @Test
     public void testQuery() throws Exception {
@@ -41,6 +45,13 @@ public class PersonDaoTest {
             Assert.assertEquals("张三", person.getName());
         }
 
+    }
+
+    //jpa-------------------------------------------------------
+    @Test
+    public void testQueryJpa() throws Exception {
+        PersonEntity person = personRepository.findById(1l).get();
+        Assert.assertNotNull(person);
     }
 
 }
