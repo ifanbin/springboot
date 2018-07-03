@@ -9,4 +9,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * Created by bysocket on 09/10/2017.
  */
 public interface PersonRepository extends JpaRepository<PersonEntity, Long> {
+    PersonEntity findByName(String name);
 }
